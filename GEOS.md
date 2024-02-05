@@ -1,2 +1,1 @@
-## MapLibre GEOS
-
+## MapLibre style GEOS

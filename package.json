@@ -2,11 +2,8 @@
   "name": "@maplibre/maplibre-gl-style-spec",
   "description": "a specification for maplibre styles",
   "version": "20.1.1",
-  "author": "MapLibre",
+  "author": "MapLibre / GEOS",
   "keywords": [
-    "mapbox",
-    "mapbox-gl",
-    "mapbox-gl-js",
     "maplibre",
     "maplibre-gl",
     "maplibre-gl-js"

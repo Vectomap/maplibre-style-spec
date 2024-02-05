@@ -5718,6 +5718,7 @@
       "property-type": "data-constant"
     }
   },
+
   "paint_raster": {
     "raster-opacity": {
       "type": "number",
@@ -5742,6 +5743,7 @@
       },
       "property-type": "data-constant"
     },
+
     "raster-hue-rotate": {
       "type": "number",
       "default": 0,
@@ -5765,6 +5767,7 @@
       },
       "property-type": "data-constant"
     },
+
     "raster-brightness-min": {
       "type": "number",
       "doc": "Increase or reduce the brightness of the image. The value is the minimum brightness.",
@@ -5788,6 +5791,7 @@
       },
       "property-type": "data-constant"
     },
+
     "raster-brightness-max": {
       "type": "number",
       "doc": "Increase or reduce the brightness of the image. The value is the maximum brightness.",
@@ -5811,6 +5815,7 @@
       },
       "property-type": "data-constant"
     },
+
     "raster-saturation": {
       "type": "number",
       "doc": "Increase or reduce the saturation of the image.",
@@ -5834,6 +5839,7 @@
       },
       "property-type": "data-constant"
     },
+
     "raster-contrast": {
       "type": "number",
       "doc": "Increase or reduce the contrast of the image.",
@@ -5857,6 +5863,7 @@
       },
       "property-type": "data-constant"
     },
+
     "raster-resampling": {
       "type": "enum",
       "doc": "The resampling/interpolation method to use for overscaling, also known as texture magnification filter",
@@ -5885,6 +5892,7 @@
       },
       "property-type": "data-constant"
     },
+
     "raster-fade-duration": {
       "type": "number",
       "default": 300,
@@ -5909,7 +5917,338 @@
       "property-type": "data-constant"
     }
   },
+
   "paint_hillshade": {
+
+    "geos-zenith": {
+      "type": "number",
+      "doc": "Zenith light angle",
+      "default": 45,
+      "minimum": 0,
+      "maximum": 90,
+      "transition": true,
+      "sdk-support": {
+        "basic functionality": {
+          "js": "0.43.0",
+          "android": "6.0.0",
+          "ios": "4.0.0",
+          "macos": "0.7.0"
+        }
+      },
+      "expression": {
+        "interpolated": true,
+        "parameters": [
+          "zoom"
+        ]
+      },
+      "property-type": "data-constant"
+    },
+
+    "geos-azimuth": {
+      "type": "number",
+      "doc": "Azimuth light angle",
+      "default": 315,
+      "minimum": 0,
+      "maximum": 360,
+      "transition": true,
+      "sdk-support": {
+        "basic functionality": {
+          "js": "0.43.0",
+          "android": "6.0.0",
+          "ios": "4.0.0",
+          "macos": "0.7.0"
+        }
+      },
+      "expression": {
+        "interpolated": true,
+        "parameters": [
+          "zoom"
+        ]
+      },
+      "property-type": "data-constant"
+    },
+  
+    "geos-exag": {
+      "type": "number",
+      "doc": "Elevation exageration",
+      "default": 1,
+      "minimum": 0,
+      "maximum": 100,
+      "transition": true,
+      "sdk-support": {
+        "basic functionality": {
+          "js": "0.43.0",
+          "android": "6.0.0",
+          "ios": "4.0.0",
+          "macos": "0.7.0"
+        }
+      },
+      "expression": {
+        "interpolated": true,
+        "parameters": [
+          "zoom"
+        ]
+      },
+      "property-type": "data-constant"
+    },
+
+
+    "geos-ramp": {
+      "type": "array",
+      "value": "number",
+      "default": [
+				0.0,  0.1, 0.4, -3000.0,
+				0.2,  0.2, 0.8, 0.0,
+				0.4, 0.55, 0.3, 1.0,
+				0.9,  0.9, 0.6, 500.0,
+				0.6,  0.4, 0.3, 2000.0,
+				1.0,  1.0, 1.0, 3500.0
+      ],
+      "doc": "Elevation color ramp",
+      "sdk-support": {
+        "basic functionality": {
+          "js": "0.10.0",
+          "android": "2.0.1",
+          "ios": "2.0.0",
+          "macos": "0.1.0"
+        },
+        "data-driven styling": {
+          "js": "0.43.0",
+          "android": "6.0.0",
+          "ios": "4.0.0",
+          "macos": "0.7.0"
+        }
+      },
+      "expression": {
+        "interpolated": false,
+        "parameters": [
+          "zoom"
+        ]
+      },
+      "property-type": "data-driven"
+    },
+
+
+    "geos-mix-slope": {
+      "property-type": "data-constant",
+      "type": "number",
+      "doc": "Elevation slope",
+      "default": 0.5,
+      "minimum": 0,
+      "maximum": 1,
+      "transition": true,
+      "sdk-support": {
+        "basic functionality": {
+          "js": "0.43.0",
+          "android": "6.0.0",
+          "ios": "4.0.0",
+          "macos": "0.7.0"
+        }
+      },
+      "expression": {
+        "interpolated": true,
+        "parameters": [
+          "zoom"
+        ]
+      }
+    },
+
+    "geos-mix-shade": {
+      "type": "number",
+      "doc": "Elevation hillshade",
+      "default": 0.5,
+      "minimum": 0,
+      "maximum": 1,
+      "transition": true,
+      "sdk-support": {
+        "basic functionality": {
+          "js": "0.43.0",
+          "android": "6.0.0",
+          "ios": "4.0.0",
+          "macos": "0.7.0"
+        }
+      },
+      "expression": {
+        "interpolated": true,
+        "parameters": [
+          "zoom"
+        ]
+      },
+      "property-type": "data-constant"
+    },
+
+    "geos-mix-color": {
+      "type": "number",
+      "doc": "Elevation color mix",
+      "default": 0.5,
+      "minimum": 0,
+      "maximum": 1,
+      "transition": true,
+      "sdk-support": {
+        "basic functionality": {
+          "js": "0.43.0",
+          "android": "6.0.0",
+          "ios": "4.0.0",
+          "macos": "0.7.0"
+        }
+      },
+      "expression": {
+        "interpolated": true,
+        "parameters": [
+          "zoom"
+        ]
+      },
+      "property-type": "data-constant"
+    },
+
+
+    "geos-brightness": {
+      "type": "number",
+      "doc": "Raster brightness",
+      "default": 0,
+      "minimum": -1,
+      "maximum": 1,
+      "transition": true,
+      "sdk-support": {
+        "basic functionality": {
+          "js": "0.43.0",
+          "android": "6.0.0",
+          "ios": "4.0.0",
+          "macos": "0.7.0"
+        }
+      },
+      "expression": {
+        "interpolated": true,
+        "parameters": [
+          "zoom"
+        ]
+      },
+      "property-type": "data-constant"
+    },
+
+    "geos-contrast": {
+      "type": "number",
+      "doc": "Raster contrast",
+      "default": 0,
+      "minimum": -1,
+      "maximum": 1,
+      "transition": true,
+      "sdk-support": {
+        "basic functionality": {
+          "js": "0.43.0",
+          "android": "6.0.0",
+          "ios": "4.0.0",
+          "macos": "0.7.0"
+        }
+      },
+      "expression": {
+        "interpolated": true,
+        "parameters": [
+          "zoom"
+        ]
+      },
+      "property-type": "data-constant"
+    },
+
+    "geos-exposure": {
+      "type": "number",
+      "doc": "Raster exposure",
+      "default": 0,
+      "minimum": -1,
+      "maximum": 1,
+      "transition": true,
+      "sdk-support": {
+        "basic functionality": {
+          "js": "0.43.0",
+          "android": "6.0.0",
+          "ios": "4.0.0",
+          "macos": "0.7.0"
+        }
+      },
+      "expression": {
+        "interpolated": true,
+        "parameters": [
+          "zoom"
+        ]
+      },
+      "property-type": "data-constant"
+    },
+
+    "geos-saturation": {
+      "type": "number",
+      "doc": "Raster color saturation",
+      "default": 0,
+      "minimum": -1,
+      "maximum": 1,
+      "transition": true,
+      "sdk-support": {
+        "basic functionality": {
+          "js": "0.43.0",
+          "android": "6.0.0",
+          "ios": "4.0.0",
+          "macos": "0.7.0"
+        }
+      },
+      "expression": {
+        "interpolated": true,
+        "parameters": [
+          "zoom"
+        ]
+      },
+      "property-type": "data-constant"
+    },
+
+    "geos-vibrance": {
+      "type": "number",
+      "doc": "Raster color vibrance",
+      "default": 0,
+      "minimum": -1,
+      "maximum": 1,
+      "transition": true,
+      "sdk-support": {
+        "basic functionality": {
+          "js": "0.43.0",
+          "android": "6.0.0",
+          "ios": "4.0.0",
+          "macos": "0.7.0"
+        }
+      },
+      "expression": {
+        "interpolated": true,
+        "parameters": [
+          "zoom"
+        ]
+      },
+      "property-type": "data-constant"
+    },
+
+    "geos-hue": {
+      "type": "number",
+      "doc": "Raster color hue",
+      "default": 0,
+      "minimum": -180,
+      "maximum": 180,
+      "transition": true,
+      "sdk-support": {
+        "basic functionality": {
+          "js": "0.43.0",
+          "android": "6.0.0",
+          "ios": "4.0.0",
+          "macos": "0.7.0"
+        }
+      },
+      "expression": {
+        "interpolated": true,
+        "parameters": [
+          "zoom"
+        ]
+      },
+      "property-type": "data-constant"
+    },
+
+
+
+
     "hillshade-illumination-direction": {
       "type": "number",
       "default": 335,
@@ -5933,6 +6272,7 @@
       },
       "property-type": "data-constant"
     },
+
     "hillshade-illumination-anchor": {
       "type": "enum",
       "values": {
@@ -5961,6 +6301,7 @@
       },
       "property-type": "data-constant"
     },
+
     "hillshade-exaggeration": {
       "type": "number",
       "doc": "Intensity of the hillshade",
@@ -5984,6 +6325,7 @@
       },
       "property-type": "data-constant"
     },
+
     "hillshade-shadow-color": {
       "type": "color",
       "default": "#000000",
@@ -6005,6 +6347,7 @@
       },
       "property-type": "data-constant"
     },
+
     "hillshade-highlight-color": {
       "type": "color",
       "default": "#FFFFFF",
@@ -6026,6 +6369,7 @@
       },
       "property-type": "data-constant"
     },
+
     "hillshade-accent-color": {
       "type": "color",
       "default": "#000000",
@@ -6048,6 +6392,7 @@
       "property-type": "data-constant"
     }
   },
+
   "paint_background": {
     "background-color": {
       "type": "color",
