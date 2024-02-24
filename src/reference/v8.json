@@ -5992,6 +5992,19 @@
       "property-type": "data-constant"
     },
 
+    "geos-autoscale": {
+      "type": "boolean",
+      "default": false,
+      "doc": "Colorramp is adapted automaticaly based on displayed elevations",
+      "property-type": "data-constant"
+    },
+
+    "geos-debugclass": {
+      "type": "boolean",
+      "default": false,
+      "doc": "Flag to display classes in color",
+      "property-type": "data-constant"
+    },
 
     "geos-ramp": {
       "type": "array",
